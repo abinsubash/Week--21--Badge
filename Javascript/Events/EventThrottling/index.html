@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="heheButton">CLick me</button>
+</body>
+<script>
+    function throttling(fn,limit){
+        let isThrottling = false;
+        return function(...args){
+            if(!isThrottling){
+                fn.apply(this,args);
+                isThrottling=true
+                setTimeout(()=>{
+                    isThrottling=false
+                },limit)
+            }
+        }
+    }
+    const handleClick = () => {
+      console.log('Button clicked at', new Date().toLocaleTimeString());
+    };
+    const throttledClick = throttling(handleClick, 3000);
+    document.getElementById('heheButton').addEventListener('click', throttledClick);
+</script>
+</html>

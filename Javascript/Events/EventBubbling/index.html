@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="padding: 20px; background: lightblue;">
+        Parent
+        <div id="child" style="padding: 20px; background: lightgreen;">Child</div>
+    </div>
+</body>
+<script>
+    document.getElementById('parent').addEventListener('click',()=>{
+        console.log('parentClicked')
+    })
+    document.getElementById('child').addEventListener('click',()=>{
+        console.log('child Clicked')
+    })
+</script>
+</html>
